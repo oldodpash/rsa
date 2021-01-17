@@ -1,6 +1,8 @@
 from tkinter import filedialog as fd
 import colorama, requests, multiprocessing
 from tkinter import *
+
+import urllib3
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 from termcolor import colored
 from default_functions import to_digit, print_col, eternity_cycle_deep
@@ -71,9 +73,10 @@ def insertText():
 
 
 if __name__ == '__main__':
-    print_col('Здравствуйте! Введите данные для начала работы.', 'green')
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
     multiprocessing.freeze_support()
     requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+    print_col('Здравствуйте! Введите данные для начала работы.', 'green')
     file_name = ''
     window = Tk()
     window.title("РСА | КБ")

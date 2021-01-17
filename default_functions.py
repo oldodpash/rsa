@@ -104,14 +104,15 @@ def AntiCaptcha(site_key, url, key):
                     delta_time = time.time() - start
                     token = r['solution']['gRecaptchaResponse']
 
-                    print(f'Токен найден за {round(delta_time)} сек.')
+                    print_col(f'Токен найден за {round(delta_time)} сек.', 'magenta')
                     return token
             except Exception:
                 pass
         token = None
         return token
     except Exception:
-        print('Неверно введен Anticaptcha key или он отсутствует.')
+        print_col('Неверно введен Anticaptcha key или он отсутствует.', 'red')
+        eternity_cycle_deep()
 
 
 def get_data(cells, index):
